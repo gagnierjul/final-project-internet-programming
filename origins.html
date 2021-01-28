@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Julien Gagnier</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<div class="allButFooter">
+
+	<div class="header">
+		<h1>Julien Gagnier</h1>
+		<h2>Student of Computer Science Technology at College LaSalle</h2>
+	</div>
+
+	<div class="navbar">
+		<a href="index.html" >Home</a>
+		<a href="employment.html" >Employment</a>
+		<a href="hobbies.html" >Hobbies</a>
+		<a href="origins.html" class="active">Origins and Location</a>
+	</div>
+
+	<div class="locationContent">
+		<h1> LOCATION </h1>
+			<div class="locationPanel">
+			<p> I currently reside in Baie-d'Urfe which is on the West Island and commute to school using the train and bus. See the below map to see where exactly the suburb is located.
+			You can zoom out by using CTRL + SCROLL to see the rest of the map. Using that you analyze the distance that I commute on a daily basis.</p>
+			</div>
+
+			<div class="divider">
+			</div>
+
+		<center><div id="googleMap" style="width:100%;height:400px;"></div></center>
+
+		<h1> ORIGINS </h1>
+		<center><img src="img/france-flag.gif" alt="Animated French Flag"></center>
+
+			<div class="divider">
+			</div>
+
+		<div class="originPanel">
+
+		<p> On my father's side, our family roots lie in Quebec from the very beginning. My grandmother on my father's side is of Acadian descent but, other than that, that side 
+		of the family is purely French Canadian.</p>
+		<p> The French roots are all on my mother's side as both of my grandparents were parisians. My grandfather fought in World War II and, unfortunetaly I never had the chance
+		to meet him. My grandmother immigrated to Canada with my mother searching for a new beginning after her husband had passed away during the war.</p> 
+
+		</div>
+
+		<div class="divider">
+		</div>
+			
+	</div>
+</div>
+
+<div class="footer">
+	<h1> &#169 JULIEN GAGNIER. ALL RIGHTS RESERVED.</h1>
+</div>
+
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(45.416423, -73.916417),
+  zoom:15,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjMczTCmqwQTew-fwQKcZ1IyTUVi16rCk&callback=myMap"></script>
+
+
+</body>
+</html>

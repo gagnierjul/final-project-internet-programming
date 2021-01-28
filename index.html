@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Julien Gagnier</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<div class="allButFooter">
+
+	<div class="header">
+		<h1>Julien Gagnier</h1>
+		<h2>Student of Computer Science Technology at College LaSalle</h2>
+	</div>
+
+	<div class="navbar">
+		<a href="index.html" class="active">Home</a>
+		<a href="employment.html">Employment</a>
+		<a href="hobbies.html">Hobbies</a>
+		<a href="origins.html">Origins and Location</a>
+	</div>
+
+	<div class="divider">
+	</div>
+
+	<div class="slideshow-container">
+
+		<div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img style="width:100%">
+            <div class="text"></div>
+        </div>
+
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>  
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>  
+	</div>
+
+    <br>
+
+    <div class="dots-container">
+    </div>
+
+	<div class="divider">
+	</div>
+
+	<div class="container panels">
+		<section class="panel about">
+		<h1> ABOUT ME </h1>
+		<p> I am 23 years old and I am currently completing studies in computer science techonology with a profile 
+		in video game programming at <a href=https://www.lasallecollege.com/ >LaSalle College</a> in Montreal. I have lived in Montreal my whole life and have
+		had several part-time jobs throughout my studies that have helped shape me into the hard working and social 
+		individual I am today.</p>
+		<p> My goals are to one day work at a game studio where they create AAA titles. This does not have to necessarily be a studio in Montreal as I have 
+		always wanted to experience the excitement of moving to somewhere new. While I would find it hard leaving my friends and family, I believe it would be 
+		an extremely important experience in my life.</p>
+		</section>
+
+		<div class="divider">
+		</div>
+
+		<section class="panel searching">
+		<h1> MY DREAM JOB </h1>
+		<p> I have been playing video games ever since a very young age. Throughout all my years of gaming, one game developper has held a special place 
+		in my heart due to the fact that they created a game that really changed my life in many ways and helped me mature at a much younger age then my peers.</p>
+		<p>	<a href=https://www.blizzard.com/en-us/ >Blizard Entertainment</a> is the company that very much helped me become the person that I am today through their library of ground-breaking online games that
+		allowed me to forge online friendships and attend their yearly convention in Anaheim, California. Here is my favorite cinematic that was created by the company in order
+		to promote the launch of the latest World of Warcraft expansion.</p>
+
+		<center><iframe width="560" height="315" src="https://www.youtube.com/embed/jSJr3dXZfcg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+		</section>
+
+		<div class="divider">
+		</div>
+	</div>
+
+	<div class="divider">
+	</div>
+
+</div>
+
+<div class="footer">
+	<h1> &#169 JULIEN GAGNIER. ALL RIGHTS RESERVED.</h1>
+</div>
+
+    <script>
+
+        var slideArray = ["img/slide1.png", "img/slide2.png", "img/slide3.png"]
+        var captionArray = ["ORIGINS", "HOBBIES", "EDUCATION"]
+
+        setupDots();
+
+        var slideIndex = 1;     // slides indexed from 1
+        showSlides(slideIndex);
+
+        var timeout = null;
+        timeout=setTimeout(automaticChange, 7000);  // To avoid automatic slide change, comment this line
+
+        function setupDots() {
+            var i;
+            var dotSet = document.getElementsByClassName("dots-container")[0];          
+            for (i = 0; i < slideArray.length; i++) {
+                var dot = document.createElement('span'); // create a new element of type (tag) span
+                dot.className = "dot";                    // give it class="dot"
+                dot.index = i + 1;                        // give it an attribute index to remember its index
+                dot.onclick = function () { currentSlide(this.index) };  // give it the onclick event  
+                dotSet.appendChild(dot);                  // add it as a child to to div "dots-container"
+            }
+        }
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides(slideIndex);
+            if (timeout !== null) {
+                clearTimeout(timeout);
+                timeout = setTimeout(automaticChange, 7000);
+            }
+        }
+
+        function currentSlide(n) {
+            slideIndex = n
+            showSlides(slideIndex);
+            if (timeout !== null) {
+                clearTimeout(timeout);
+                timeout = setTimeout(automaticChange, 7000); 
+            }
+        }
+
+        function showSlides(n) {
+            var i;
+            var slide = document.getElementsByClassName("mySlides")[0];
+            var numbertext = document.getElementsByClassName("numbertext")[0];
+            var text = document.getElementsByClassName("text")[0];
+            var dots = document.getElementsByClassName("dot");             
+
+            if (n > slideArray.length) { slideIndex = 1 } 
+            if (n < 1) { slideIndex = slideArray.length } 
+
+            slide.style.display = "none";
+ 
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");               
+            }           
+            slide.getElementsByTagName("img")[0].src = slideArray[slideIndex - 1];
+            numbertext.innerHTML = slideIndex + " / " + slideArray.length;
+            text.innerHTML = captionArray[slideIndex - 1];
+            slide.style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function automaticChange() {
+            slideIndex++;
+            showSlides(slideIndex);
+            timeout=setTimeout(automaticChange, 7000); 
+        }
+
+    </script>
+</body>
+</html>
